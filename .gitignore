@@ -1,0 +1,5 @@
+*.vcd
+cov_work
+xcelium.d
+*.log
+xrun.*
