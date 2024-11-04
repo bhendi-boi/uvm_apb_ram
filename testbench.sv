@@ -1,5 +1,9 @@
 import uvm_pkg::*;
-typedef enum bit [1:0]   {readd = 0, writed = 1, rst = 2} oper_mode;
+typedef enum bit [1:0] {
+    readd = 0,
+    writed = 1,
+    rst = 2
+} oper_mode;
 
 `include "uvm_macros.svh"
 `include "interface.sv"
@@ -15,36 +19,36 @@ typedef enum bit [1:0]   {readd = 0, writed = 1, rst = 2} oper_mode;
 
 module tb ();
 
-  	logic clk;
+    logic clk;
 
-	initial begin
-		clk = 0;
-		forever #10 clk = ~clk;
-	end
+    initial begin
+        clk = 0;
+        forever #10 clk = ~clk;
+    end
 
-	apb_if vif (.pclk(clk));
+    apb_if vif (.pclk(clk));
 
-	apb_ram dut (
-		.presetn(vif.presetn),
-		.pclk(vif.pclk),
-		.psel(vif.psel),
-		.penable(vif.penable),
-		.pwrite(vif.pwrite),
-		.paddr(vif.paddr),
-		.pwdata(vif.pwdata),
-		.prdata(vif.prdata),
-		.pready(vif.pready),
-		.pslverr(vif.pslverr)
-	);
+    apb_ram dut (
+        .presetn(vif.presetn),
+        .pclk(vif.pclk),
+        .psel(vif.psel),
+        .penable(vif.penable),
+        .pwrite(vif.pwrite),
+        .paddr(vif.paddr),
+        .pwdata(vif.pwdata),
+        .prdata(vif.prdata),
+        .pready(vif.pready),
+        .pslverr(vif.pslverr)
+    );
 
-	initial begin
-		uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
-		run_test("write_read_test");
-	end
+    initial begin
+        uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
+        run_test("write_read_test");
+    end
 
-	initial begin
-		$dumpfile("dump.vcd");
-		$dumpvars;
-	end
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars;
+    end
 
 endmodule
