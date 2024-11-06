@@ -41,7 +41,7 @@ class mon extends uvm_monitor;
         @(posedge vif.pclk);
         tr.paddr = vif.paddr;
         tr.pwrite = vif.pwrite;
-        tr.op = tr.pwrite ? writed : readd;
+        tr.op = tr.pwrite ? 2'b01 : 2'b00;
         tr.pwdata = vif.pwdata;
         @(negedge vif.pready);
         tr.pslverr = vif.pslverr;

@@ -19,7 +19,7 @@ class transaction extends uvm_sequence_item;
         super.do_print(printer);
         printer.print_field_int("Write/Read", pwrite, 1, UVM_HEX);
         printer.print_field_int("Address", paddr, 32, UVM_HEX);
-        printer.print_field_int("Data In", prdata, 32, UVM_HEX);
+        printer.print_field_int("Data In", pwdata, 32, UVM_HEX);
         printer.print_field_int("Data Out", prdata, 32, UVM_HEX);
         printer.print_field_int("Error", pslverr, 1, UVM_HEX);
     endfunction

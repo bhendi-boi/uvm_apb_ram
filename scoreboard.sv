@@ -4,7 +4,7 @@ class scb extends uvm_scoreboard;
     uvm_analysis_imp #(transaction, scb) scoreboard_port;
     transaction trs[$];
     transaction tr;
-    bit [7:0] mem[31:0] = '{default: 0};
+    bit [31:0] mem[31:0] = '{default: 0};
     int i = 0;
 
     function new(string name = "scb", uvm_component parent);
@@ -41,13 +41,17 @@ class scb extends uvm_scoreboard;
     endfunction
 
     function void compare(transaction tr);
-        if (tr.op == writed) begin
+        if (tr.op == 2'b01) begin
             if (tr.pslverr) begin
-                `uvm_info("Scoreboard", "Slave Error", UVM_NONE)
+                `uvm_info("Scoreboard", "Slave Error while writing", UVM_NONE)
                 return;
             end
             mem[tr.paddr] = tr.pwdata;
-        end else if (tr.op == readd) begin
+        end else if (tr.op == 2'b00) begin
+            if(tr.pslverr) begin
+                `uvm_info("Scoreboard", "Slave Error while reading", UVM_NONE)
+                return;
+            end
             if (mem[tr.paddr] == tr.prdata) begin
                 `uvm_info("Scoreboard", "Read Successful", UVM_NONE)
             end else `uvm_error("Scoreboard", "Read unsuccessful!")

@@ -17,6 +17,7 @@ class write_read_seq extends uvm_sequence;
             // write transaction 
             start_item(tr);
             tr.randomize() with {
+                op == 2'b01;
                 presetn == 1;
                 paddr == i;
                 pwrite == 1;
@@ -25,6 +26,7 @@ class write_read_seq extends uvm_sequence;
             // read transaction 
             start_item(tr);
             tr.randomize() with {
+                op == 2'b00;
                 presetn == 1;
                 paddr == i;
                 pwrite == 0;
@@ -50,6 +52,7 @@ class reset_seq extends uvm_sequence;
         tr = transaction::type_id::create("tr");
         start_item(tr);
         tr.randomize() with {
+            op == 2'b10;
             presetn == 1'b0;
             paddr == 1'b0;
             pwrite == 1'b0;
