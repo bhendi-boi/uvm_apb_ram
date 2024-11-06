@@ -13,7 +13,7 @@ class write_read_seq extends uvm_sequence;
     task body();
         tr = transaction::type_id::create("tr");
         i  = 0;
-        for (i = 0; i < 2; i++) begin
+        for (i = 0; i < 32; i++) begin
             // write transaction 
             start_item(tr);
             tr.randomize() with {
