@@ -36,7 +36,7 @@ class drv extends uvm_driver #(transaction);
 
     task drive(transaction tr);
         @(posedge vif.pclk);
-        if (tr.op == 2'b10) begin
+        if (tr.op == rst) begin
             vif.presetn <= 1'b0;
             vif.paddr <= 32'hx;
             vif.pwrite <= 32'hx;

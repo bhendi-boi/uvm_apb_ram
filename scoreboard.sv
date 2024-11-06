@@ -41,13 +41,13 @@ class scb extends uvm_scoreboard;
     endfunction
 
     function void compare(transaction tr);
-        if (tr.op == 2'b01) begin
+        if (tr.op == writed) begin
             if (tr.pslverr) begin
                 `uvm_info("Scoreboard", "Slave Error while writing", UVM_NONE)
                 return;
             end
             mem[tr.paddr] = tr.pwdata;
-        end else if (tr.op == 2'b00) begin
+        end else if (tr.op == readd) begin
             if(tr.pslverr) begin
                 `uvm_info("Scoreboard", "Slave Error while reading", UVM_NONE)
                 return;
