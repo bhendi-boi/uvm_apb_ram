@@ -13,6 +13,7 @@ typedef enum bit [1:0] {
 `include "driver.sv"
 `include "monitor.sv"
 `include "agent.sv"
+`include "coverage.sv"
 `include "scoreboard.sv"
 `include "env.sv"
 `include "write_read.sv"

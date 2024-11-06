@@ -7,13 +7,13 @@ class cvg extends uvm_subscriber #(transaction);
     covergroup func;
         option.per_instance = 1;
         option.auto_bin_max = 8;
-        addr: coverpoint tr.addr {
+        addr: coverpoint tr.paddr {
             bins valid[] = {[0 : 31]}; bins invalid = {[32 : $]};
         }
-        din: coverpoint tr.din;
-        dout: coverpoint tr.dout;
-        r_w: coverpoint tr.wr {bins read = {0}; bins write = {1};}
-        error: coverpoint tr.err;
+        din: coverpoint tr.pwdata;
+        dout: coverpoint tr.prdata;
+        r_w: coverpoint tr.pwrite {bins read = {0}; bins write = {1};}
+        error: coverpoint tr.pslverr;
         read_all: cross r_w, addr{ignore_bins write = binsof (r_w.write);}
         write_all: cross r_w, addr{ignore_bins read = binsof (r_w.read);}
     endgroup
