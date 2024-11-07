@@ -3,3 +3,6 @@ cov_work
 xcelium.d
 *.log
 xrun.*
+*.rpt
+imc.key
+metrics_report

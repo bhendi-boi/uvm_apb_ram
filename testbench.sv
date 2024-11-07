@@ -16,7 +16,9 @@ typedef enum bit [1:0] {
 `include "coverage.sv"
 `include "scoreboard.sv"
 `include "env.sv"
+`include "base_test.sv"
 `include "write_read.sv"
+`include "error_test.sv"
 
 module tb ();
 
@@ -44,7 +46,7 @@ module tb ();
 
     initial begin
         uvm_config_db#(virtual apb_if)::set(null, "*", "vif", vif);
-        run_test("write_read_test");
+        run_test("error_test");
     end
 
     initial begin

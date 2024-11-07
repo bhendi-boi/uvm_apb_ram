@@ -38,14 +38,14 @@ class mon extends uvm_monitor;
     endtask
 
     task main();
-        @(posedge vif.pclk);
-        tr.paddr = vif.paddr;
-        tr.pwrite = vif.pwrite;
-        if(tr.pwrite) tr.op = writed;
-        else tr.op = readd;
-        tr.pwdata = vif.pwdata;
-        @(negedge vif.pready);
+        @(posedge vif.pready);
         tr.pslverr = vif.pslverr;
+        @(negedge vif.pready);
+        tr.paddr  = vif.paddr;
+        tr.pwrite = vif.pwrite;
+        if (tr.pwrite) tr.op = writed;
+        else tr.op = readd;
+        tr.pwdata  = vif.pwdata; 
         tr.prdata  = vif.prdata;
     endtask
 
