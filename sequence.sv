@@ -98,3 +98,36 @@ class error_seq extends uvm_sequence;
         finish_item(tr);
     endtask
 endclass
+
+class rand_write_seq extends uvm_sequence;
+    `uvm_object_utils(rand_write_seq)
+
+    transaction tr;
+    int no_of_tr;
+    int i=0;
+
+    function new(string name = "rand_write_sequence");
+        super.new(name);
+        `uvm_info("Random Write sequence", "Constructed Random write sequence", UVM_HIGH)
+    endfunction
+    
+    function void set_no_of_tr(int no_of_tr);
+        this.no_of_tr = no_of_tr;
+    endfunction
+
+    task body();
+        tr = transaction::type_id::create("tr");
+        i=0;
+        for(; i<no_of_tr;i++) begin
+        start_item(tr);
+        tr.randomize() with {
+            op == 2'b01;
+            presetn == 1'b1;
+            paddr <= 31;
+            pwrite == 1'b1;
+            pwdata == 1'b0;
+        };
+        finish_item(tr);
+        end
+    endtask
+endclass
