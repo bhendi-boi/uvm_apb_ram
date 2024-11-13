@@ -1,0 +1,35 @@
+[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"Verification Metrics","CG Average Grd":"100%","CG Cov":"238 / 238 (100%)","Valid Metrics":"0","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"Types","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"0","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"$unit","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"512","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"cvg::func","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"512","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"addr","CG Average Grd":"100%","CG Cov":"33 / 33 (100%)","Valid Metrics":"512","bins_json":"bin0.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"din","CG Average Grd":"100%","CG Cov":"8 / 8 (100%)","Valid Metrics":"512","bins_json":"bin1.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"dout","CG Average Grd":"100%","CG Cov":"8 / 8 (100%)","Valid Metrics":"512","bins_json":"bin2.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"r_w","CG Average Grd":"100%","CG Cov":"2 / 2 (100%)","Valid Metrics":"512","bins_json":"bin3.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"error","CG Average Grd":"100%","CG Cov":"2 / 2 (100%)","Valid Metrics":"512","bins_json":"bin4.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"read_all","CG Average Grd":"100%","CG Cov":"33 / 33 (100%)","Valid Metrics":"512","columns":"r_w;addr","bins_json":"bin5.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"write_all","CG Average Grd":"100%","CG Cov":"33 / 33 (100%)","Valid Metrics":"512","columns":"r_w;addr","bins_json":"bin6.json"}
+]}
+]}
+]}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"Instances","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"0","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"uvm_pkg","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"0","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"uvm_test_top","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"0","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"env","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"0","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"coverage","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"512","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"func","CG Average Grd":"100%","CG Cov":"119 / 119 (100%)","Valid Metrics":"512","children"
+:[{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"addr","CG Average Grd":"100%","CG Cov":"33 / 33 (100%)","Valid Metrics":"512","bins_json":"bin7.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"din","CG Average Grd":"100%","CG Cov":"8 / 8 (100%)","Valid Metrics":"512","bins_json":"bin8.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"dout","CG Average Grd":"100%","CG Cov":"8 / 8 (100%)","Valid Metrics":"512","bins_json":"bin9.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"r_w","CG Average Grd":"100%","CG Cov":"2 / 2 (100%)","Valid Metrics":"512","bins_json":"bin10.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"error","CG Average Grd":"100%","CG Cov":"2 / 2 (100%)","Valid Metrics":"512","bins_json":"bin11.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"read_all","CG Average Grd":"100%","CG Cov":"33 / 33 (100%)","Valid Metrics":"512","columns":"r_w;addr","bins_json":"bin12.json"}
+,{"expanded":false,"Exclusion Rule Type":"None","UNR":"none","title":"write_all","CG Average Grd":"100%","CG Cov":"33 / 33 (100%)","Valid Metrics":"512","columns":"r_w;addr","bins_json":"bin13.json"}
+]}
+]}
+]}
+]}
+]}
+]}
+]}
+]

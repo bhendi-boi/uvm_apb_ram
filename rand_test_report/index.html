@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Metrics Report</title>
+<!--link type="text/css" rel="stylesheet" href="lib/jquery-ui.css" /-->
+<script src="resources/lib/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script src="resources/lib/jquery-ui.min.js" type="text/javascript"></script>
+<link href="resources/skin-win7/ui.fancytree.css" rel="stylesheet" type="text/css">
+
+<script src="resources/src/jquery.fancytree.js" type="text/javascript"></script>
+<script src="resources/src/jquery.fancytree.table.js" type="text/javascript"></script>
+<script src="resources/src/jquery.fancytree.filter.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="resources/lib/layout-default-latest.css"/>
+<script type="text/javascript" src="resources/lib/jquery.layout-1.3.0.rc30.80.js"></script>
+<link href="resources/report/sample.css" rel="stylesheet" type="text/css">
+<script src="resources/report/sample.js" type="text/javascript"></script>
+<script src="resources/lib/tables_common.js" type="text/javascript"></script>
+
+
+
+
+<!-- For deviding the page to two  -->
+<link type="text/css" rel="stylesheet" href="./resources/imc.css"/>
+
+
+<style type="text/css">
+    ul.fancytree-container,
+    table.fancytree-container {
+        font-size: 0.8em;
+    }
+</style>
+
+<!-- End_Exclude -->
+<style type="text/css">
+    /* Fancytree extension 'table' */
+    table.fancytree-ext-table {
+        width: 100%;
+    }
+
+    table.fancytree-ext-table tbody tr:nth-child(even) {
+        background-color: #f4f4f8;
+    }
+
+    table.fancytree-ext-table tbody tr td {
+        border: 1px solid lightgray;
+    }
+
+    /* Fancytree extension 'columnview' */
+    table.fancytree-ext-columnview {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    table.fancytree-ext-columnview tbody tr[
+
+    0
+    ]
+    {
+        height: 200px
+    ;
+    }
+</style>
+
+<!-- Add code to initialize the tree when the document is loaded: -->
+<script type="text/javascript">
+
+    var table1_title_index = 2;
+    var filesInZip =  -1;
+    function diff(input, noShowTable) {
+
+        // Attach the fancytree widget to an existing <div id="tree"> element
+        // and pass the tree options as an argument to the fancytree() function:
+
+        $("#treetable").fancytree({
+            extensions: ["table", "filter"],
+            quicksearch: true,
+            checkbox: false,
+            selectMode: 1,
+            filter: {
+                mode: "hide",
+                autoApply: true
+            },
+
+            source: {
+                url: input,
+                cache: true
+            },
+            lazyLoad: function (event, data) {
+                if (filesInZip > 0) {
+                    //====================
+                    showSubFolders(data.node.data.sub_items, data);
+                    data.result = [];
+                    //=====================
+                } else {
+                    data.result = {url: data.node.data.sub_items};
+                }
+            },
+
+            table: {
+                indentation: 20,      // indent 20px per node level
+                nodeColumnIdx: table1_title_index     // render the node title into the 0nd column
+                //checkboxColumnIdx: 0  // render the checkboxes into the 1st column
+            },
+
+            renderColumns: function (event, data) {
+                   getCell(event, data, table1_title_index);
+
+            },
+            icons: false, // Display node icons.
+            focusOnSelect: true,
+            postProcess: function (event, data) {
+                //document.getElementById('diff_header').style.display='block';
+               // document.getElementById('treetable').style.display = 'block';
+
+                document.getElementById('treetable').style.visibility = 'visible';
+                document.getElementById('filter_div').style.visibility = 'visible';
+                document.getElementById('loading').innerHTML ="";
+                document.getElementById('loading').style.visibility = 'hidden';
+
+
+            }
+        });
+        var tree_table = $("#treetable").fancytree("getTree");
+        implementFilter($("input[name=search1]"),  $("button#btnResetSearch1"), $("span#matches1"), tree_table);
+       
+    }
+
+</script>
+
+
+</head>
+<body class="example">
+<!-- manually attach allowOverflow method to pane -->
+
+    <!-- onmouseover="myLayout.allowOverflow('north')" onmouseout="myLayout.resetOverflow(this)"-->
+
+    <p class="fs"><a STYLE="float: right" class="namet" href="resources/legend.html">Legend and Help</a>
+            <br>
+            <label class="fs" STYLE="float: right"><input class="fs" type="checkbox" id="colorSet"
+                                                          title="Color Settings"
+                                                          onClick="changeColor()">Color scheme</label>
+    </p>
+<table width="100%">
+    <tr>
+        <td style="font-size:x-large"><img border="0" src="./resources/cdnlogo.png">&nbsp;&nbsp;&nbsp;Metrics Report</font>
+        </td>
+    </tr>
+    <tr>
+        <td><i>Generated by root on 2024/11/11 13:41:41 (host l210.vlsilab.iiitdm.ac.in)</i></td>
+    </tr>
+</table>
+
+<p class="title">Metrics Report</p>
+<table class="summary_table">
+    <thead>
+    <tr>
+        <th class="wht_wider"><b>Context Info:</b></th>
+    </tr>
+    </thead>
+    <tr>
+        <td class="wht_wider">
+        <b>loaded run directory</b><br>&nbsp;&nbsp;/root/ec21b1022/uvm_apb_ram/cov_work/scope/test_rand<br><br><b>model files</b><br>&nbsp;&nbsp;domain : hdl<br>&nbsp;&nbsp;&nbsp;&nbsp;/root/ec21b1022/uvm_apb_ram/cov_work/scope/icc_254459c2_4960a8b0.ucm<br><br><b>ucds files</b><br>&nbsp;&nbsp;domain : hdl<br>&nbsp;&nbsp;&nbsp;&nbsp;/root/ec21b1022/uvm_apb_ram/cov_work/scope/test_rand/icc_254459c2_4960a8b0.ucd<br><br><b>loaded refinements</b><br>&nbsp;&nbsp;not loaded<br><br><b>ccf files</b><br>&nbsp;&nbsp;not loaded<br><br>
+        </td>
+    </tr>
+</table>
+<!--RANK HTML LINK PLACEHOLDER--><BR>
+<p class="subtitle">View Name: Metrics_CoverGroup</p>
+
+
+<p class="subtitle">Version: IMC: 20.03-s003: (c) Copyright 1995-2020 Cadence Design Systems Inc</p>
+
+
+    <div id="filter_div"  class="description">
+        <p>
+            <label><b>Verification Hierarchy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label>Filter by name:</label>
+            <input name="search1" placeholder="Filter...">
+            <button id="btnResetSearch1">&times;</button>
+                
+                <span id="matches1"></span>
+            <label>&nbsp;&nbsp;&nbsp;&nbsp;</font></label>
+            <button onClick = 'expandAll(true);' title="Expand All">+</button><button onClick = 'expandAll(false);' title="Collapse All">-</button>
+<img class="info_icon" align="right" src="resources/information.png" onClick='alert("Filter: com.cadence.ufi.model.query.UFIBitwiseFilter@fd998e56  ");'/>
+        </p>
+
+    </div>
+    <div top=20px left=40px id="loading" width=100% align="center"> <img align="center" src="resources/report/spinner.gif" border="0" /> </div>
+    <table id="treetable">
+        <colgroup>
+
+                <col width="100px">
+
+            </col>
+
+                <col width="100px">
+
+            </col>
+
+                <col width="500px">
+
+            </col>
+
+                <col width="100px">
+
+            </col>
+
+                <col width="100px">
+
+            </col>
+
+                <col width="100px">
+
+            </col>
+
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="wht">
+                    Exclusion Rule Type
+
+            </th>
+            <th class="wht">
+                    UNR
+
+            </th>
+            <th class="wht_wider">
+                    Name
+
+            </th>
+            <th class="wht">
+                    CoverGroup Average Grade
+
+            </th>
+            <th class="wht">
+                    CoverGroup Covered
+
+            </th>
+            <th class="wht">
+                    Valid Metrics
+
+            </th>
+
+
+        </tr>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+<script>
+    function initUI(noShowTable) {
+        document.getElementById('treetable').style.visibility = 'hidden';
+        document.getElementById('filter_div').style.visibility = 'hidden';
+        document.getElementById('loading').style.visibility = 'visible';
+        diff("tree.json", noShowTable);
+    }
+    initUI(false);
+
+
+</script>
+
+
+</body>
+</html>
+
