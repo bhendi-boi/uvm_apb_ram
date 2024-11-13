@@ -17,4 +17,10 @@
   - Generates a write and a read sequence with invalid address
 - ### Random write
   - Writes to a random location
-  - Use regression to hit all bins
+- ### Random read
+  - Reads from a random location
+- ### Random Test
+  - Includes 1024 random write transactions
+  - Inlucdes 1024 random read transactions
+  - Includes 2 error transactions (one for write and one for read)
+
