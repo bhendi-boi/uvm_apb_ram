@@ -5,7 +5,8 @@ class transaction extends uvm_sequence_item;
     rand oper_mode op;
     rand logic presetn, pwrite;
     logic psel, penable;
-    rand logic [31:0] pwdata, paddr;
+    randc logic [31:0] pwdata;
+    randc logic [31:0] paddr;
 
     // outputs
     logic pslverr, pready;

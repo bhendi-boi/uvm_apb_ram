@@ -20,6 +20,8 @@ typedef enum bit [1:0] {
 `include "write_read.sv"
 `include "error_test.sv"
 `include "rand_write_test.sv"
+`include "rand_read_test.sv"
+`include "rand_test.sv"
 
 module tb ();
 
